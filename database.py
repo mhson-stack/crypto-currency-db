@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 from datetime import datetime
 import psycopg2
 from sqlalchemy import create_engine
-from apscheduler.schedulers.blocking import BlockingScheduler
 
 
 load_dotenv()
@@ -42,6 +41,7 @@ def get_coin_history(symbol, start=None, end=None):
     coin_df["CloseTime"] = [datetime.fromtimestamp(ts // 1000) for ts in coin_df["CloseTime"]]
     print(f"Retrived {symbol}")
     return coin_df
+
 
 def import_to_db(table_name, df, method="replace"):
     conn_string = f"postgresql://{USER}:{PASSWORD}@{HOST}/{DB_NAME}"
