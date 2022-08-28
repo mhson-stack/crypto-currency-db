@@ -54,7 +54,7 @@ def import_to_db(table_name, df, method="replace"):
     conn.commit()
     db_conn.close()
     conn.close()
-    print(f"Importing {table_name}")
+    print(f"Imported {table_name}")
     return True
 
 
