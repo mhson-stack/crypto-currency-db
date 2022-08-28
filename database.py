@@ -37,8 +37,8 @@ def get_coin_history(symbol, start=None, end=None):
             "QuoteAssetVolume", "TakerBuyBaseAssetVolume", 
             "TakerBuyQuoteAssetVolume", "Ignore"]].astype("float")
 
-    coin_df["OpenTime"] = [datetime.fromtimestamp(ts + 1661705539954 // 1000) for ts in coin_df["OpenTime"]]
-    coin_df["CloseTime"] = [datetime.fromtimestamp(ts + 1661705539954// 1000) for ts in coin_df["CloseTime"]]
+    coin_df["OpenTime"] = [datetime.fromtimestamp((ts + 32400000 // 1000)) for ts in coin_df["OpenTime"]]
+    coin_df["CloseTime"] = [datetime.fromtimestamp((ts + 32400000// 100)) for ts in coin_df["CloseTime"]]
     print(f"Retrived {symbol}")
     return coin_df
 
