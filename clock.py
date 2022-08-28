@@ -5,7 +5,7 @@ from datetime import datetime, date, timedelta, timezone
 sched = BlockingScheduler()
 
 
-@sched.scheduled_job('cron', day_of_week='mon-sun', hour=2, minutes=7, timezone='Asia/Seoul')
+@sched.scheduled_job('cron', day_of_week='mon-sun', hour=2, minute=9, timezone='Asia/Seoul')
 def scheduled_job():
     print('This job is run every day at 0 am.')
     symbols = ["BTC", "ETH", "ETC", "XRP", "BNB"]
