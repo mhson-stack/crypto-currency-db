@@ -5,12 +5,12 @@ from datetime import datetime, date, timedelta, timezone
 sched = BlockingScheduler()
 
 
-@sched.scheduled_job('cron', day_of_week='mon-sun', hour=1, minute=7, timezone='Asia/Seoul')
+@sched.scheduled_job('cron', day_of_week='mon-sun', hour=1, minute=11, timezone='Asia/Seoul')
 def scheduled_job():
     print('This job is run every day at 0 am.')
     symbols = ["BTC", "ETH", "ETC", "XRP", "BNB"]
-    start = (datetime.now(timezone.utc) - timedelta(hours=14)).strftime("%Y-%m-%dT01:00+09:00")
-    end = (datetime.now(timezone.utc) + timedelta(hours=9)).strftime("%Y-%m-%dT00:00+09:00")
+    start = (datetime.now(timezone.utc) - timedelta(hours=14)).strftime("%Y-%m-%dT01:00")
+    end = (datetime.now(timezone.utc) + timedelta(hours=9)).strftime("%Y-%m-%dT00:00")
     print(f"From {start} to {end}")
 
     for symbol in symbols:
